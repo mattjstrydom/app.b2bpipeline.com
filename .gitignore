@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# next.js build
+.next/
+out/
+
+# env / secrets — NEVER commit real keys
+.env.local
+.env*.local
+
+# logs
+*.log
+npm-debug.log*
+
+# os
+.DS_Store
+Thumbs.db
+
+# vercel
+.vercel
