@@ -50,7 +50,7 @@ export default function PayoutExport({
         Download CSV
       </button>
       <p className="text-xs text-gray-400 mt-3">
-        CSV aggregates all non-paid commissions by partner — import into your
+        CSV aggregates all non-paid commissions by partner. Import into your
         payout tool or Stripe. (Automated payouts via Stripe Connect are a v1.1
         item.)
       </p>

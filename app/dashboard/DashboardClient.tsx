@@ -85,29 +85,29 @@ export default function DashboardClient({
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <header className="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between sticky top-0 z-10">
+    <div className="min-h-screen bg-surface">
+      <header className="bg-white border-b border-line px-6 py-3 flex items-center justify-between sticky top-0 z-10">
         <span className="font-bold text-lg tracking-tight">b2bpipeline</span>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-500 hidden sm:inline">{userEmail}</span>
+          <span className="text-sm text-muted hidden sm:inline">{userEmail}</span>
           <button className="btn-primary text-sm px-4 py-2">Invite partner</button>
         </div>
       </header>
 
-      <div className="max-w-6xl mx-auto px-6 py-6">
+      <div className="max-w-content mx-auto px-6 py-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
           <Stat label="Open pipeline" value={`$${pipelineValue.toLocaleString()}`} />
           <Stat label="Won" value={`$${wonValue.toLocaleString()}`} />
           <Stat label="Commissions owed" value={`$${commissionsOwed.toLocaleString()}`} />
         </div>
 
-        <nav className="flex gap-2 mb-6 border-b border-gray-200">
+        <nav className="flex gap-2 mb-6 border-b border-line">
           {(["pipeline", "partners", "referrals", "payouts"] as const).map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
               className={`px-4 py-2 text-sm font-medium capitalize ${
-                tab === t ? "border-b-2 border-brand-600 text-brand-700" : "text-gray-500"
+                tab === t ? "border-b-2 border-brand-600 text-brand-700" : "text-muted"
               }`}
             >
               {t}

@@ -9,12 +9,34 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: "#eef6ff",
-          100: "#d9eaff",
-          500: "#2f6df6",
-          600: "#1f57d6",
-          700: "#1a47ad",
+          50: "#eff6ff",
+          100: "#dbeafe",
+          500: "#1d4ed8",
+          600: "#1d4ed8",
+          700: "#1e40af",
+          900: "#1e3a8a",
         },
+        ink: "#0f172a",
+        muted: "#64748b",
+        line: "#e2e8f0",
+        surface: "#f8fafc",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        tightest: "-0.03em",
+        display: "-0.02em",
+      },
+      borderRadius: {
+        xl: "1rem",
+        "2xl": "1.25rem",
+      },
+      maxWidth: {
+        content: "72rem",
+      },
+      spacing: {
+        section: "5rem",
       },
     },
   },

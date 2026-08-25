@@ -4,13 +4,13 @@ export default function LandingPage() {
   return (
     <main className="bg-white text-gray-900">
       {/* NAV */}
-      <header className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <header className="max-w-content mx-auto px-6 py-5 flex items-center justify-between">
         <span className="font-bold text-lg tracking-tight">b2bpipeline</span>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-gray-600">
-          <a href="#features" className="hover:text-gray-900">Features</a>
-          <a href="#how" className="hover:text-gray-900">How it works</a>
-          <a href="#faq" className="hover:text-gray-900">FAQ</a>
-          <a href="#pricing" className="hover:text-gray-900">Pricing</a>
+        <nav className="hidden md:flex items-center gap-8 text-sm text-muted">
+          <a href="#features" className="hover:text-ink">Features</a>
+          <a href="#how" className="hover:text-ink">How it works</a>
+          <a href="#faq" className="hover:text-ink">FAQ</a>
+          <a href="#pricing" className="hover:text-ink">Pricing</a>
         </nav>
         <Link href="/login" className="btn-primary text-sm px-4 py-2">
           Start free
@@ -18,17 +18,16 @@ export default function LandingPage() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-6xl mx-auto px-6 pt-20 pb-16">
+      <section className="max-w-content mx-auto px-6 pt-24 pb-16">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 mb-4">
+          <p className="eyebrow mb-4">
             PRM-lite for real partner teams
           </p>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-6">
+          <h1 className="display text-5xl md:text-6xl font-bold mb-6">
             The B2B pipeline<br />for your partners.
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mb-8">
-            Track partner deals, referrals, and commissions in one shared pipeline —
-            without a $30k/yr enterprise PRM.
+          <p className="text-xl text-muted max-w-2xl mb-8">
+            Track partner deals, referrals, and commissions in one shared pipeline, without a $30k/yr enterprise PRM.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/signup" className="btn-primary text-lg px-6 py-3">
@@ -42,8 +41,8 @@ export default function LandingPage() {
       </section>
 
       {/* STAT BAND */}
-      <section className="bg-slate-50 border-y border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="bg-surface border-y border-line">
+        <div className="max-w-content mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <Stat value="0" label="spreadsheets to reconcile partner deals" />
           <Stat value="< 10 min" label="to set up your first partner pipeline" />
           <Stat value="3" label="simple plans: Free · Starter · Growth" />
@@ -52,12 +51,12 @@ export default function LandingPage() {
       </section>
 
       {/* TRUST STRIP */}
-      <section className="border-b border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-center">
+      <section className="border-b border-line">
+        <div className="max-w-content mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">
             Built on tools you already trust
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-gray-500 grayscale opacity-80">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-muted grayscale opacity-80">
             <span>Supabase</span>
             <span>Stripe</span>
             <span>n8n</span>
@@ -69,29 +68,29 @@ export default function LandingPage() {
 
       {/* CORE VALUE */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 mb-4">
+        <p className="eyebrow mb-4">
           Why b2bpipeline
         </p>
-        <h2 className="text-4xl font-bold tracking-tight mb-6">
+        <h2 className="display text-4xl font-bold mb-6">
           A partner pipeline<br />without the enterprise bloat.
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+        <p className="text-lg text-muted max-w-2xl mx-auto mb-6">
           Enterprise PRMs were built for thousands of partners and $30k contracts.
-          b2bpipeline gives small GTM teams the essentials — Kanban pipeline,
-          partner directory, referral tracking, and automatic commissions — at a
+          b2bpipeline gives small GTM teams the essentials: Kanban pipeline,
+          partner directory, referral tracking, and automatic commissions, at a
           price you can start today.
         </p>
-        <Link href="#pricing" className="text-brand-600 font-semibold">
+        <Link href="#pricing" className="link-accent">
           See pricing →
         </Link>
       </section>
 
       {/* FEATURE CARDS */}
-      <section id="features" className="max-w-6xl mx-auto px-6 pb-20">
+      <section id="features" className="max-w-content mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Feature
             title="Kanban partner pipeline"
-            desc="One glance from Registered to Won/Lost — no more hidden deals in inboxes."
+            desc="One glance from Registered to Won/Lost. No more hidden deals in inboxes."
           />
           <Feature
             title="Referral tracking that sticks"
@@ -109,14 +108,14 @@ export default function LandingPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="bg-slate-50 border-y border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 py-20">
-          <h2 className="text-3xl font-bold tracking-tight mb-12 text-center">
+      <section id="how" className="bg-surface border-y border-line">
+        <div className="max-w-content mx-auto px-6 py-20">
+          <h2 className="display text-3xl font-bold mb-12 text-center">
             How it works
           </h2>
           <div className="grid md:grid-cols-3 gap-10">
             <Step n="01" title="Set up your pipeline"
-              desc="Create your stages — Registered, Qualifying, Negotiation, Won/Lost — and invite your team." />
+              desc="Create your stages: Registered, Qualifying, Negotiation, Won/Lost, and invite your team." />
             <Step n="02" title="Add partners and deals"
               desc="Add partners to the directory, capture referrals, and move deals across the Kanban board." />
             <Step n="03" title="Win deals, pay fairly"
@@ -126,46 +125,46 @@ export default function LandingPage() {
       </section>
 
       {/* USE CASES */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold tracking-tight mb-12 text-center">
+      <section className="max-w-content mx-auto px-6 py-20">
+        <h2 className="display text-3xl font-bold mb-12 text-center">
           Built for how partner revenue actually flows
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <UseCase title="Track partner-sourced pipeline for your SaaS"
             desc="See every reseller- and referral-sourced deal in one board, with stage and owner clear." />
           <UseCase title="Centralize referrals from agencies & resellers"
-            desc="One referral log, attached to the deal it became — no more lost intro credit." />
+            desc="One referral log, attached to the deal it became. No more lost intro credit." />
           <UseCase title="Standardize commissions across GTM partners"
             desc="One rate per partner, auto-applied on Won. Fair, auditable, exportable." />
         </div>
       </section>
 
       {/* PROOF BAND */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
+      <section className="max-w-content mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-3 gap-8 text-center">
           <Stat value="0" label="implementation fees or long contracts" />
-          <Stat value="Multi-tenant" label="by design — built for modern SaaS teams" />
+          <Stat value="Multi-tenant" label="by design, built for modern SaaS teams" />
           <Stat value="100%" label="of partner deals visible in one board" />
         </div>
-        <p className="text-center text-sm text-gray-500 mt-8">
+        <p className="text-center text-sm text-muted mt-8">
           b2bpipeline is designed so every partner deal has a home you can see.
         </p>
       </section>
 
       {/* ORIGIN STORY */}
-      <section className="bg-slate-900 text-white">
+      <section className="bg-ink text-white">
         <div className="max-w-4xl mx-auto px-6 py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-100 mb-4">
+          <p className="eyebrow mb-4" style={{ color: "#93c5fd" }}>
             Forged in the AI War Room
           </p>
-          <h2 className="text-4xl font-bold tracking-tight mb-6">
+          <h2 className="display text-4xl font-bold mb-6">
             From a 5-agent brainstorm to a focused partner pipeline.
           </h2>
           <p className="text-lg text-slate-300 leading-relaxed">
             b2bpipeline started in a five-agent AI &ldquo;war room&rdquo; exploring one
             question: why is partner revenue still trapped in spreadsheets and
             inboxes? We unleashed a specialized team of agents to architect, code,
-            and refine the core engine at once — condensing months of enterprise
+            and refine the core engine at once, condensing months of enterprise
             bloat into weeks of pure utility. The answer became this product: a
             focused B2B partner pipeline that small teams can actually adopt.
           </p>
@@ -173,18 +172,18 @@ export default function LandingPage() {
       </section>
 
       {/* STACK GRID */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold tracking-tight mb-4 text-center">
+      <section className="max-w-content mx-auto px-6 py-20">
+        <h2 className="display text-3xl font-bold mb-4 text-center">
           Plays well with your stack.
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto text-center mb-10">
-          Built on Next.js, Supabase, Stripe, and n8n — with CSV exports today and
+        <p className="text-lg text-muted max-w-2xl mx-auto text-center mb-10">
+          Built on Next.js, Supabase, Stripe, and n8n, with CSV exports today and
           HubSpot integration on the roadmap.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           {["Supabase", "Stripe", "n8n", "CSV", "HubSpot (planned)"].map((t) => (
             <span key={t}
-              className="px-4 py-2 rounded-full border border-slate-200 text-sm font-medium text-gray-600">
+              className="px-4 py-2 rounded-full border border-line text-sm font-medium text-muted">
               {t}
             </span>
           ))}
@@ -192,18 +191,18 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-slate-50 border-y border-slate-100">
+      <section id="faq" className="bg-surface border-y border-line">
         <div className="max-w-3xl mx-auto px-6 py-20">
-          <h2 className="text-3xl font-bold tracking-tight mb-10 text-center">
+          <h2 className="display text-3xl font-bold mb-10 text-center">
             Frequently asked questions
           </h2>
           <div className="space-y-6">
             <Faq q="Can't I just track partner deals in my CRM like HubSpot?"
-              a="You can bolt it on if you're already on HubSpot Enterprise with ops bandwidth — but commission math, payout exports, and partner portals are separate paid add-ons there. Most SMBs tracking partners in a spreadsheet do it because HubSpot's partner features are either absent or enterprise-priced. We're the purpose-built $49/mo alternative, live in a day, no admin." />
+              a="You can bolt it on if you're already on HubSpot Enterprise with ops bandwidth, but commission math, payout exports, and partner portals are separate paid add-ons there. Most SMBs tracking partners in a spreadsheet do it because HubSpot's partner features are either absent or enterprise-priced. We're the purpose-built $49/mo alternative, live in a day, no admin." />
             <Faq q="How is b2bpipeline different from a full PRM?"
               a="PRM-lite: essentials only, no $30k contracts, focused on pipeline + commissions for small teams." />
             <Faq q="Who is b2bpipeline for?"
-              a="Small B2B teams with a growing set of partners, agencies, or resellers — anyone still reconciling partner deals in a spreadsheet." />
+              a="Small B2B teams with a growing set of partners, agencies, or resellers, anyone still reconciling partner deals in a spreadsheet." />
             <Faq q="What happens when a deal is marked Won?"
               a="Commissions are calculated from your per-partner rules and made available in the payout CSV export. No manual math." />
             <Faq q="What integrations do you support?"
@@ -213,8 +212,8 @@ export default function LandingPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold tracking-tight mb-10 text-center">
+      <section id="pricing" className="max-w-content mx-auto px-6 py-20">
+        <h2 className="display text-3xl font-bold mb-10 text-center">
           Pricing
         </h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -227,14 +226,14 @@ export default function LandingPage() {
       {/* BOTTOM CTA */}
       <section className="bg-brand-600 text-white">
         <div className="max-w-4xl mx-auto px-6 py-20 text-center">
-          <h2 className="text-4xl font-bold tracking-tight mb-4">
+          <h2 className="display text-4xl font-bold mb-4">
             Ready to see every partner deal in one pipeline?
           </h2>
-          <p className="text-lg text-brand-100 mb-8">
+          <p className="text-lg text-blue-100 mb-8">
             Start free in minutes, upgrade only when your partners demand it.
           </p>
           <Link href="/signup"
-            className="inline-block bg-white text-brand-700 font-semibold px-6 py-3 rounded-md hover:bg-brand-50 transition">
+            className="inline-block bg-white text-brand-700 font-semibold px-6 py-3 rounded-md hover:bg-blue-50 transition">
             Create your free workspace
           </Link>
         </div>
