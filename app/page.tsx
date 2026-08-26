@@ -18,24 +18,75 @@ export default function LandingPage() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-content mx-auto px-6 pt-24 pb-16">
-        <div className="max-w-3xl">
-          <p className="eyebrow mb-4">
-            PRM-lite for real partner teams
-          </p>
-          <h1 className="display text-5xl md:text-6xl font-bold mb-6">
-            The B2B pipeline<br />for your partners.
-          </h1>
-          <p className="text-xl text-muted max-w-2xl mb-8">
-            Track partner deals, referrals, and commissions in one shared pipeline, without a $30k/yr enterprise PRM.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/signup" className="btn-primary text-lg px-6 py-3">
-              Create your free workspace
-            </Link>
-            <a href="#how" className="btn-secondary text-lg px-6 py-3">
-              See how it works
-            </a>
+      <section className="max-w-content mx-auto px-6 pt-16 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-xl">
+            <p className="eyebrow mb-4">
+              PRM-lite for real partner teams
+            </p>
+            <h1 className="display text-5xl md:text-6xl font-bold mb-6">
+              The B2B pipeline<br />for your partners.
+            </h1>
+            <p className="text-xl text-muted mb-8">
+              Track partner deals, referrals, and commissions in one shared pipeline, without a $30k/yr enterprise PRM.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/signup" className="btn-gradient text-lg px-6 py-3">
+                Create your free workspace
+              </Link>
+              <a href="#how" className="btn-secondary text-lg px-6 py-3">
+                See how it works
+              </a>
+            </div>
+          </div>
+
+          {/* HERO VISUAL: live product-UI render with floating value cards */}
+          <div className="relative">
+            <div className="card p-4 shadow-xl">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-semibold">Partner pipeline</span>
+                <span className="chip-accent">Live</span>
+              </div>
+              <div className="grid grid-cols-4 gap-2 text-center">
+                {[
+                  ["Registered", "6", "bg-surface"],
+                  ["Qualifying", "4", "bg-surface"],
+                  ["Negotiation", "3", "bg-surface"],
+                  ["Won", "9", "bg-brand-50"],
+                ].map(([s, n, bg]) => (
+                  <div key={s} className={`${bg} rounded-lg p-2`}>
+                    <p className="text-lg font-bold">{n}</p>
+                    <p className="text-[10px] uppercase tracking-wide text-muted">{s}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 space-y-2">
+                {[
+                  ["Acme Reseller", "Enterprise deal", "$12,000", "Won"],
+                  ["Northwind", "Pilot expansion", "$4,500", "Negotiation"],
+                  ["Globex", "New intro", "$2,200", "Qualifying"],
+                ].map(([p, d, v, st]) => (
+                  <div key={p} className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 text-sm">
+                    <div>
+                      <p className="font-medium">{d}</p>
+                      <p className="text-xs text-muted">{p}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-semibold">{v}</p>
+                      <p className="text-[10px] uppercase text-muted">{st}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* floating glass cards (igloohome-style overlays) */}
+            <div className="glass-card absolute -top-4 -left-4 px-3 py-2 text-sm font-semibold hidden sm:block">
+              💸 $1,250 commission paid
+            </div>
+            <div className="glass-card absolute -bottom-4 -right-4 px-3 py-2 text-sm font-semibold hidden sm:block">
+              0 spreadsheets · 100% synced
+            </div>
           </div>
         </div>
       </section>
@@ -233,7 +284,7 @@ export default function LandingPage() {
             Start free in minutes, upgrade only when your partners demand it.
           </p>
           <Link href="/signup"
-            className="inline-block bg-white text-brand-700 font-semibold px-6 py-3 rounded-md hover:bg-blue-50 transition">
+            className="btn-gradient px-6 py-3">
             Create your free workspace
           </Link>
         </div>

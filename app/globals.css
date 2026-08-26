@@ -122,3 +122,46 @@ body {
 .link-accent:hover {
   color: var(--brand-dark);
 }
+
+/* ---- Gradient pill CTA (igloohome-style) ---- */
+.btn-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 20px -4px rgba(124, 58, 237, 0.4);
+  transition: transform 0.05s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-gradient:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 10px 26px -4px rgba(124, 58, 237, 0.5);
+}
+.btn-gradient:active {
+  transform: translateY(1px);
+}
+
+/* floating glass card (igloohome-style overlay) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.25);
+}
+
+.chip-accent {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
