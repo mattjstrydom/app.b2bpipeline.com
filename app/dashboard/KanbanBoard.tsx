@@ -97,43 +97,56 @@ export default function KanbanBoard({
         )}
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
-        {PIPELINE_STAGES.map((stage) => (
-          <div key={stage} className="bg-white rounded-lg border border-gray-200 p-3">
-            <h3 className="font-semibold text-sm mb-3 text-gray-700">
-              {STAGE_LABELS[stage]} ({deals.filter((d) => d.stage === stage).length})
-            </h3>
-            <div className="space-y-2">
-              {deals
-                .filter((d) => d.stage === stage)
-                .map((d) => (
-                  <div key={d.id} className="border border-gray-200 rounded p-2 text-sm">
-                    <p className="font-medium">{d.name}</p>
-                    <p className="text-gray-500">${d.amount?.toLocaleString()}</p>
-                    <div className="flex gap-1 mt-2 flex-wrap">
-                      {PIPELINE_STAGES.filter((s) => s !== stage).map((s) => (
-                        <button
-                          key={s}
-                          className="text-xs text-brand-600 hover:underline"
-                          onClick={() => moveDeal(d, s)}
-                        >
-                          → {STAGE_LABELS[s]}
-                        </button>
-                      ))}
-                      {stage !== "won" && (
-                        <button
-                          className="text-xs text-green-600 hover:underline"
-                          onClick={() => moveDeal(d, "won")}
-                        >
-                          ✓ Won
-                        </button>
-                      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {PIPELINE_STAGES.map((stage) => {
+          const stageDeals = deals.filter((d) => d.stage === stage);
+          return (
+            <div key={stage} className="bg-surface rounded-md border border-line p-3">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-semibold text-sm text-ink">{STAGE_LABELS[stage]}</h3>
+                <span className="text-xs text-muted bg-white border border-line rounded-full px-2 py-0.5">
+                  {stageDeals.length}
+                </span>
+              </div>
+              <div className="space-y-2">
+                {stageDeals.length === 0 && (
+                  <p className="text-xs text-muted italic py-2">No deals in this stage yet.</p>
+                )}
+                {stageDeals.map((d) => {
+                  const partner = partners.find((p) => p.id === d.partner_id);
+                  return (
+                    <div key={d.id} className="border border-line bg-white rounded-md p-2.5 text-sm shadow-soft hover:-translate-y-px hover:shadow-card transition">
+                      <p className="font-medium text-ink">{d.name}</p>
+                      <div className="flex items-center justify-between mt-1">
+                        <p className="text-xs text-muted">{partner?.name ?? "No partner"}</p>
+                        <p className="mono font-semibold text-ink">${d.amount?.toLocaleString()}</p>
+                      </div>
+                      <div className="flex gap-1 mt-2 flex-wrap">
+                        {PIPELINE_STAGES.filter((s) => s !== stage).map((s) => (
+                          <button
+                            key={s}
+                            className="text-xs text-brand-600 hover:underline"
+                            onClick={() => moveDeal(d, s)}
+                          >
+                            → {STAGE_LABELS[s]}
+                          </button>
+                        ))}
+                        {stage !== "won" && (
+                          <button
+                            className="text-xs text-pos hover:underline font-semibold"
+                            onClick={() => moveDeal(d, "won")}
+                          >
+                            ✓ Won
+                          </button>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

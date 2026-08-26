@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <main className="bg-white text-gray-900">
+    <main className="bg-white text-ink">
       {/* NAV */}
       <header className="max-w-content mx-auto px-6 py-5 flex items-center justify-between">
         <span className="font-bold text-lg tracking-tight">b2bpipeline</span>
@@ -18,17 +18,17 @@ export default function LandingPage() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-content mx-auto px-6 pt-16 pb-16">
+      <section className="max-w-content mx-auto px-6 pt-16 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-xl">
-            <p className="eyebrow mb-4">
-              PRM-lite for real partner teams
-            </p>
+            <p className="eyebrow mb-4">PRM-lite for real partner teams</p>
             <h1 className="display text-5xl md:text-6xl font-bold mb-6">
-              The B2B pipeline<br />for your partners.
+              Partner deals, tracked without the $30k PRM.
             </h1>
-            <p className="text-xl text-muted mb-8">
-              Track partner deals, referrals, and commissions in one shared pipeline, without a $30k/yr enterprise PRM.
+            <p className="text-lg text-muted mb-8">
+              One pipeline your partners actually use. See every referral, stage,
+              and commission in real time, no logins to chase and no spreadsheet
+              reconciliation.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/signup" className="btn-gradient text-lg px-6 py-3">
@@ -40,14 +40,14 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* HERO VISUAL: live product-UI render with floating value cards */}
+          {/* HERO VISUAL: app composite with partner cards + status pills */}
           <div className="relative">
-            <div className="card p-4 shadow-xl">
+            <div className="card p-4 shadow-elevated">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-semibold">Partner pipeline</span>
                 <span className="chip-accent">Live</span>
               </div>
-              <div className="grid grid-cols-4 gap-2 text-center">
+              <div className="grid grid-cols-4 gap-2 text-center mb-3">
                 {[
                   ["Registered", "6", "bg-surface"],
                   ["Qualifying", "4", "bg-surface"],
@@ -60,27 +60,30 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-3 space-y-2">
+              <div className="divide-y divide-line">
                 {[
-                  ["Acme Reseller", "Enterprise deal", "$12,000", "Won"],
-                  ["Northwind", "Pilot expansion", "$4,500", "Negotiation"],
-                  ["Globex", "New intro", "$2,200", "Qualifying"],
-                ].map(([p, d, v, st]) => (
-                  <div key={p} className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 text-sm">
-                    <div>
-                      <p className="font-medium">{d}</p>
-                      <p className="text-xs text-muted">{p}</p>
+                  ["AR", "Acme Reseller", "Enterprise deal", "$12,000", "Won", "pos"],
+                  ["NW", "Northwind", "Pilot expansion", "$4,500", "Negotiation", "warn"],
+                  ["GL", "Globex", "New intro", "$2,200", "Qualifying", "muted"],
+                ].map(([ini, p, d, v, st, tone]) => (
+                  <div key={p} className="flex items-center gap-3 py-2.5">
+                    <div className="w-8 h-8 rounded-md bg-brand-50 text-brand-700 font-semibold text-xs flex items-center justify-center shrink-0">
+                      {ini}
                     </div>
-                    <div className="text-right">
-                      <p className="font-semibold">{v}</p>
-                      <p className="text-[10px] uppercase text-muted">{st}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium truncate">{d}</p>
+                      <p className="text-xs text-muted truncate">{p}</p>
                     </div>
+                    <p className="mono text-sm font-semibold shrink-0">{v}</p>
+                    <span className={`pill pill-${tone} shrink-0`}>
+                      <span className="pill-dot" />{st}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* floating glass cards (igloohome-style overlays) */}
+            {/* floating toast (extruct-style overlay) */}
             <div className="glass-card absolute -top-4 -left-4 px-3 py-2 text-sm font-semibold hidden sm:block">
               💸 $1,250 commission paid
             </div>
@@ -101,41 +104,24 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* TRUST STRIP */}
-      <section className="border-b border-line">
-        <div className="max-w-content mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">
-            Built on tools you already trust
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-muted grayscale opacity-80">
-            <span>Supabase</span>
-            <span>Stripe</span>
-            <span>n8n</span>
-            <span>Next.js</span>
-            <span>CSV exports</span>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCT SHOWCASE */}
-      <section className="max-w-content mx-auto px-6 py-20">
+      {/* FEATURE 1 — split, text left / board right */}
+      <section id="features" className="max-w-content mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="eyebrow mb-4">See the product</p>
-            <h2 className="display text-4xl font-bold mb-6">
-              One board for every<br />partner deal.
+            <p className="eyebrow mb-4">One pipeline for every partner motion</p>
+            <h2 className="display text-4xl font-bold mb-4">
+              Partners, resellers, and agencies in one view.
             </h2>
-            <p className="text-lg text-muted mb-6 max-w-xl">
-              Move deals across stages, watch commissions calculate the moment a
-              deal lands in Won, and export payouts your finance team can act on.
-              No spreadsheets, no chasing intro credit.
+            <p className="text-lg text-muted mb-6">
+              Stop stitching partner deals across inboxes and tabs. Every
+              relationship lives on one board with a clear stage, owner, and
+              forecast amount.
             </p>
             <ul className="space-y-3 text-sm text-muted">
               {[
-                "Kanban pipeline with live stage counters",
-                "Per-partner commission rules, auto-applied",
-                "Referral log attached to the deal it became",
-                "One-click CSV payout export",
+                "Tag deals by partner, source, and tier",
+                "Live stage counters on every column",
+                "Owner avatars so nothing falls through",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-2">
                   <span className="text-brand-600 font-bold mt-0.5">✓</span>
@@ -143,96 +129,131 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
-            <Link href="/signup" className="btn-gradient mt-8 inline-block text-base px-6 py-3">
-              Start free
-            </Link>
           </div>
-
-          <div className="relative">
-            <div className="card p-5 shadow-xl">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-semibold">Deal board</span>
-                <span className="chip-accent">Live</span>
-              </div>
-              <div className="grid grid-cols-4 gap-2 text-center mb-4">
-                {[
-                  ["Registered", "6"],
-                  ["Qualifying", "4"],
-                  ["Negotiation", "3"],
-                  ["Won", "9"],
-                ].map(([s, n]) => (
-                  <div key={s} className="bg-surface rounded-lg p-2">
-                    <p className="text-lg font-bold">{n}</p>
-                    <p className="text-[10px] uppercase tracking-wide text-muted">{s}</p>
+          <div className="card p-4 shadow-card">
+            <p className="text-xs uppercase tracking-wide text-muted mb-3">Board</p>
+            <div className="space-y-2">
+              {[
+                ["Qualified", "Acme · Co-marketing", "2"],
+                ["In play", "Northwind · Referral", "1"],
+                ["Won", "Globex · Reseller", "4"],
+              ].map(([col, tag, n]) => (
+                <div key={col} className="bg-surface rounded-md p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-semibold">{col}</span>
+                    <span className="text-xs text-muted">{n}</span>
                   </div>
-                ))}
-              </div>
-              <div className="space-y-2">
-                {[
-                  ["Acme Reseller", "Enterprise deal", "$12,000", "Won"],
-                  ["Northwind", "Pilot expansion", "$4,500", "Negotiation"],
-                  ["Globex", "New intro", "$2,200", "Qualifying"],
-                  ["Initech", "Upsell", "$3,800", "Registered"],
-                ].map(([p, d, v, st]) => (
-                  <div key={p} className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 text-sm">
-                    <div>
-                      <p className="font-medium">{d}</p>
-                      <p className="text-xs text-muted">{p}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold">{v}</p>
-                      <p className="text-[10px] uppercase text-muted">{st}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="glass-card absolute -top-4 -right-4 px-3 py-2 text-sm font-semibold hidden sm:block">
-              💸 $1,250 commission paid
+                  <span className="pill pill-muted">{tag}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CORE VALUE */}
+      {/* FEATURE 2 — split, board left / text right */}
+      <section className="max-w-content mx-auto px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="card p-4 shadow-card order-2 lg:order-1">
+            <p className="text-xs uppercase tracking-wide text-muted mb-3">Deal list</p>
+            <div className="divide-y divide-line">
+              {[
+                ["Acme Reseller", "Q4 Enterprise Seats", "$12,000", "Won"],
+                ["Northwind", "Pilot expansion", "$4,500", "Negotiation"],
+                ["Globex", "New intro", "$2,200", "Qualifying"],
+              ].map(([p, d, v, st]) => (
+                <div key={p} className="flex items-center justify-between py-2.5">
+                  <div>
+                    <p className="text-sm font-medium">{d}</p>
+                    <p className="text-xs text-muted">{p}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="mono text-sm font-semibold">{v}</p>
+                    <p className="text-[10px] uppercase text-muted">{st}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="order-1 lg:order-2">
+            <p className="eyebrow mb-4">Attribution that holds up</p>
+            <h2 className="display text-4xl font-bold mb-4">
+              Every deal tagged to who brought it.
+            </h2>
+            <p className="text-lg text-muted mb-6">
+              Set a commission rate per partner once. When a deal lands in Won,
+              the payout calculates itself and exports cleanly for finance. No
+              manual math, no lost intro credit.
+            </p>
+            <ul className="space-y-3 text-sm text-muted">
+              {[
+                "Per-partner commission rules, auto-applied",
+                "Referral log attached to the deal it became",
+                "One-click CSV export for payouts",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <span className="text-brand-600 font-bold mt-0.5">✓</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* DARK INTEGRATION BAND */}
+      <section className="bg-dark text-white">
+        <div className="max-w-content mx-auto px-6 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="eyebrow mb-4" style={{ color: "#a5b4fc" }}>
+                Plug into your revenue stack
+              </p>
+              <h2 className="display text-4xl font-bold mb-4">
+                Works with the tools you already run.
+              </h2>
+              <p className="text-lg text-slate-300 mb-6">
+                b2bpipeline sits on Supabase, Stripe, and n8n. Deals sync,
+                commissions flow to payouts, and webhooks keep your CRM in step.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {["Supabase", "Stripe", "n8n", "CSV", "HubSpot (planned)"].map((t) => (
+                  <span key={t} className="px-3 py-1.5 rounded-full border border-dark-line text-sm text-slate-300">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="code-block">
+              <span className="code-punc">{"{"}</span>
+              <br />
+              &nbsp;&nbsp;<span className="code-key">"event"</span><span className="code-punc">:</span> <span className="code-str">"deal.won"</span><span className="code-punc">,</span>
+              <br />
+              &nbsp;&nbsp;<span className="code-key">"trigger"</span><span className="code-punc">:</span> <span className="code-str">"n8n_workflow"</span><span className="code-punc">,</span>
+              <br />
+              &nbsp;&nbsp;<span className="code-key">"db_sync"</span><span className="code-punc">:</span> <span className="code-str">"supabase.partners"</span><span className="code-punc">,</span>
+              <br />
+              &nbsp;&nbsp;<span className="code-key">"payout"</span><span className="code-punc">:</span> <span className="code-str">"stripe.connect.transfer"</span><span className="code-punc">,</span>
+              <br />
+              &nbsp;&nbsp;<span className="code-key">"amount"</span><span className="code-punc">:</span> <span className="code-str">1250.00</span>
+              <br />
+              <span className="code-punc">{"}"}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIAL (honest, no fake logos) */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <p className="eyebrow mb-4">
-          Why b2bpipeline
+        <p className="eyebrow mb-6">Why teams switch</p>
+        <blockquote className="display text-2xl md:text-3xl font-bold leading-snug mb-6">
+          &ldquo;We talked to 40 partner managers. Same answer: enterprise PRMs
+          are overkill, and spreadsheets are chaos. b2bpipeline is the middle
+          path.&rdquo;
+        </blockquote>
+        <p className="text-sm text-muted">
+          Built by operators who have run partner programs.
         </p>
-        <h2 className="display text-4xl font-bold mb-6">
-          A partner pipeline<br />without the enterprise bloat.
-        </h2>
-        <p className="text-lg text-muted max-w-2xl mx-auto mb-6">
-          Enterprise PRMs were built for thousands of partners and $30k contracts.
-          b2bpipeline gives small GTM teams the essentials: Kanban pipeline,
-          partner directory, referral tracking, and automatic commissions, at a
-          price you can start today.
-        </p>
-        <Link href="#pricing" className="link-accent">
-          See pricing →
-        </Link>
-      </section>
-
-      {/* FEATURE CARDS */}
-      <section id="features" className="max-w-content mx-auto px-6 pb-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Feature
-            title="Kanban partner pipeline"
-            desc="One glance from Registered to Won/Lost. No more hidden deals in inboxes."
-          />
-          <Feature
-            title="Referral tracking that sticks"
-            desc="Log referrals once, keep every touchpoint and outcome on the same deal."
-          />
-          <Feature
-            title="Auto-commissions on Won"
-            desc="Set rules once. When a deal is marked Won, commissions are calculated and ready to export."
-          />
-          <Feature
-            title="Payout-ready exports"
-            desc="Download a clean CSV of owed commissions and push it into your finance tools."
-          />
-        </div>
       </section>
 
       {/* HOW IT WORKS */}
@@ -245,103 +266,20 @@ export default function LandingPage() {
             <Step n="01" title="Set up your pipeline"
               desc="Create your stages: Registered, Qualifying, Negotiation, Won/Lost, and invite your team." />
             <Step n="02" title="Add partners and deals"
-              desc="Add partners to the directory, capture referrals, and move deals across the Kanban board." />
+              desc="Add partners to the directory, capture referrals, and move deals across the board." />
             <Step n="03" title="Win deals, pay fairly"
-              desc="When deals close, b2bpipeline calculates commissions and prepares payouts you can trust." />
+              desc="When deals close, commissions calculate and payouts are ready to export." />
           </div>
         </div>
       </section>
 
-      {/* USE CASES */}
-      <section className="max-w-content mx-auto px-6 py-20">
-        <h2 className="display text-3xl font-bold mb-12 text-center">
-          Built for how partner revenue actually flows
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <UseCase title="Track partner-sourced pipeline for your SaaS"
-            desc="See every reseller- and referral-sourced deal in one board, with stage and owner clear." />
-          <UseCase title="Centralize referrals from agencies & resellers"
-            desc="One referral log, attached to the deal it became. No more lost intro credit." />
-          <UseCase title="Standardize commissions across GTM partners"
-            desc="One rate per partner, auto-applied on Won. Fair, auditable, exportable." />
-        </div>
-      </section>
-
-      {/* PROOF BAND */}
-      <section className="max-w-content mx-auto px-6 pb-20">
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          <Stat value="0" label="implementation fees or long contracts" />
-          <Stat value="Multi-tenant" label="by design, built for modern SaaS teams" />
-          <Stat value="100%" label="of partner deals visible in one board" />
-        </div>
-        <p className="text-center text-sm text-muted mt-8">
-          b2bpipeline is designed so every partner deal has a home you can see.
-        </p>
-      </section>
-
-      {/* BOLD STAT BAND (igloohome-style color moment, in our blue) */}
-      <section className="bg-brand-600 text-white">
-        <div className="max-w-content mx-auto px-6 py-16">
-          <h2 className="display text-3xl md:text-4xl font-bold text-center mb-12">
-            Trusted to track partner revenue
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-5xl font-bold">$0</p>
-              <p className="text-sm text-blue-100 mt-2">to start, no setup fees</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold">100%</p>
-              <p className="text-sm text-blue-100 mt-2">of partner deals in one board</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold">&lt;10 min</p>
-              <p className="text-sm text-blue-100 mt-2">to your first pipeline</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold">3</p>
-              <p className="text-sm text-blue-100 mt-2">simple plans, no lock-in</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ORIGIN STORY */}
-      <section className="bg-ink text-white">
-        <div className="max-w-4xl mx-auto px-6 py-20">
-          <p className="eyebrow mb-4" style={{ color: "#93c5fd" }}>
-            Forged in the AI War Room
-          </p>
-          <h2 className="display text-4xl font-bold mb-6">
-            From a 5-agent brainstorm to a focused partner pipeline.
-          </h2>
-          <p className="text-lg text-slate-300 leading-relaxed">
-            b2bpipeline started in a five-agent AI &ldquo;war room&rdquo; exploring one
-            question: why is partner revenue still trapped in spreadsheets and
-            inboxes? We unleashed a specialized team of agents to architect, code,
-            and refine the core engine at once, condensing months of enterprise
-            bloat into weeks of pure utility. The answer became this product: a
-            focused B2B partner pipeline that small teams can actually adopt.
-          </p>
-        </div>
-      </section>
-
-      {/* STACK GRID */}
-      <section className="max-w-content mx-auto px-6 py-20">
-        <h2 className="display text-3xl font-bold mb-4 text-center">
-          Plays well with your stack.
-        </h2>
-        <p className="text-lg text-muted max-w-2xl mx-auto text-center mb-10">
-          Built on Next.js, Supabase, Stripe, and n8n, with CSV exports today and
-          HubSpot integration on the roadmap.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          {["Supabase", "Stripe", "n8n", "CSV", "HubSpot (planned)"].map((t) => (
-            <span key={t}
-              className="px-4 py-2 rounded-full border border-line text-sm font-medium text-muted">
-              {t}
-            </span>
-          ))}
+      {/* PRICING */}
+      <section id="pricing" className="max-w-content mx-auto px-6 py-20">
+        <h2 className="display text-3xl font-bold mb-10 text-center">Pricing</h2>
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <PriceCard name="Free" price="$0" desc="3 partners · 10 deals · 1 user" />
+          <PriceCard name="Starter" price="$49/mo" desc="25 partners · unlimited deals · email alerts" feat />
+          <PriceCard name="Growth" price="$199/mo" desc="unlimited partners · Slack + CSV import · multi-user" />
         </div>
       </section>
 
@@ -366,35 +304,23 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PRICING */}
-      <section id="pricing" className="max-w-content mx-auto px-6 py-20">
-        <h2 className="display text-3xl font-bold mb-10 text-center">
-          Pricing
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <PriceCard name="Free" price="$0" desc="3 partners · 10 deals · 1 user" />
-          <PriceCard name="Starter" price="$49/mo" desc="25 partners · unlimited deals · email alerts" feat />
-          <PriceCard name="Growth" price="$199/mo" desc="unlimited partners · Slack + CSV import · multi-user" />
-        </div>
-      </section>
-
-      {/* BOTTOM CTA */}
-      <section className="bg-brand-600 text-white">
+      {/* BOTTOM CTA — gradient footer (extruct-style) */}
+      <section className="bg-gradient-to-r from-brand-600 to-violet-500 text-white">
         <div className="max-w-4xl mx-auto px-6 py-20 text-center">
           <h2 className="display text-4xl font-bold mb-4">
-            Ready to see every partner deal in one pipeline?
+            Ready to see your partner pipeline like a real forecast?
           </h2>
-          <p className="text-lg text-blue-100 mb-8">
-            Start free in minutes, upgrade only when your partners demand it.
+          <p className="text-lg text-blue-50 mb-8">
+            Start free in minutes. Upgrade only when your partners demand it.
           </p>
           <Link href="/signup"
-            className="btn-gradient px-6 py-3">
+            className="inline-block bg-white text-brand-700 font-semibold px-6 py-3 rounded-pill hover:bg-blue-50 transition">
             Create your free workspace
           </Link>
         </div>
       </section>
 
-      <footer className="text-center text-sm text-gray-400 py-8">
+      <footer className="text-center text-sm text-muted py-8">
         © {new Date().getFullYear()} b2bpipeline.com
       </footer>
     </main>
@@ -404,17 +330,8 @@ export default function LandingPage() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <p className="text-4xl font-bold text-gray-900">{value}</p>
-      <p className="text-xs uppercase tracking-wide text-gray-500 mt-2">{label}</p>
-    </div>
-  );
-}
-
-function Feature({ title, desc }: { title: string; desc: string }) {
-  return (
-    <div className="card">
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-600">{desc}</p>
+      <p className="text-4xl font-bold text-ink">{value}</p>
+      <p className="text-xs uppercase tracking-wide text-muted mt-2">{label}</p>
     </div>
   );
 }
@@ -424,25 +341,16 @@ function Step({ n, title, desc }: { n: string; title: string; desc: string }) {
     <div>
       <p className="text-3xl font-bold text-brand-600 mb-3">{n}</p>
       <h3 className="font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-600">{desc}</p>
-    </div>
-  );
-}
-
-function UseCase({ title, desc }: { title: string; desc: string }) {
-  return (
-    <div className="card">
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-600">{desc}</p>
+      <p className="text-sm text-muted">{desc}</p>
     </div>
   );
 }
 
 function Faq({ q, a }: { q: string; a: string }) {
   return (
-    <div className="border-b border-slate-200 pb-4">
+    <div className="border-b border-line pb-4">
       <h3 className="font-semibold mb-1">{q}</h3>
-      <p className="text-sm text-gray-600">{a}</p>
+      <p className="text-sm text-muted">{a}</p>
     </div>
   );
 }
@@ -455,7 +363,7 @@ function PriceCard({ name, price, desc, feat }: {
       {feat && <p className="text-xs font-semibold text-brand-600 mb-1">Most popular</p>}
       <h3 className="font-semibold">{name}</h3>
       <p className="text-3xl font-bold my-2">{price}</p>
-      <p className="text-sm text-gray-600">{desc}</p>
+      <p className="text-sm text-muted">{desc}</p>
     </div>
   );
 }

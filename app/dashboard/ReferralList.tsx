@@ -62,27 +62,27 @@ export default function ReferralList({
         </button>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto card p-0">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-gray-500 border-b">
-              <th className="py-2">Company</th>
-              <th>Contact</th>
-              <th>Partner</th>
-              <th>Status</th>
+            <tr className="text-left text-muted border-b border-line">
+              <th className="py-2 px-4 font-semibold">Company</th>
+              <th className="px-4 font-semibold">Contact</th>
+              <th className="px-4 font-semibold">Partner</th>
+              <th className="px-4 font-semibold">Status</th>
             </tr>
           </thead>
           <tbody>
             {referrals.map((r) => (
-              <tr key={r.id} className="border-b border-gray-100">
-                <td className="py-2 font-medium">{r.referred_company}</td>
-                <td>{r.referred_contact ?? "—"}</td>
-                <td>
+              <tr key={r.id} className="border-b border-line hover:bg-surface transition">
+                <td className="py-2 px-4 font-medium text-ink">{r.referred_company}</td>
+                <td className="px-4 text-muted">{r.referred_contact ?? "—"}</td>
+                <td className="px-4 text-muted">
                   {partners.find((p) => p.id === r.partner_id)?.name ?? "—"}
                 </td>
-                <td>
+                <td className="px-4">
                   <select
-                    className="border rounded px-2 py-1 text-xs"
+                    className="input w-auto py-1 text-xs"
                     value={r.status}
                     onChange={(e) => setStatus(r, e.target.value)}
                   >
@@ -97,7 +97,7 @@ export default function ReferralList({
             ))}
             {referrals.length === 0 && (
               <tr>
-                <td colSpan={4} className="py-6 text-center text-gray-400">
+                <td colSpan={4} className="py-8 text-center text-muted">
                   No referrals logged yet.
                 </td>
               </tr>

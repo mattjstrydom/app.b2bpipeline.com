@@ -4,13 +4,18 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a; /* slate-900 ink */
-  --muted: #64748b; /* slate-500 */
-  --brand: #1d4ed8; /* deep blue, igloohome-grade */
+  --foreground: #020617; /* ink-950 */
+  --muted: #6b7280; /* gray-500 */
+  --brand: #1d4ed8; /* royal blue */
+  --brand-violet: #6366f1; /* indigo accent for gradients */
   --brand-dark: #1e40af;
-  --brand-tint: #eff6ff;
-  --border: #e2e8f0; /* slate-200 */
-  --surface: #f8fafc; /* slate-50 */
+  --border: #e5e7eb; /* gray-200 */
+  --surface: #f9fafb; /* gray-50 */
+  --dark: #020617; /* dark section bg */
+  --dark-border: #111827;
+  --pos: #16a34a;
+  --warn: #f97316;
+  --danger: #dc2626;
 }
 
 * {
@@ -26,14 +31,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* ---- Display headings: igloohome-grade ---- */
+/* ---- Display headings ---- */
 .display {
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .eyebrow {
@@ -48,8 +53,8 @@ body {
 .btn-primary {
   background: var(--brand);
   color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem; /* radius-sm */
   font-weight: 600;
   font-size: 0.95rem;
   transition: background 0.15s ease, transform 0.05s ease;
@@ -57,17 +62,13 @@ body {
   align-items: center;
   justify-content: center;
 }
-.btn-primary:hover {
-  background: var(--brand-dark);
-}
-.btn-primary:active {
-  transform: translateY(1px);
-}
+.btn-primary:hover { background: var(--brand-dark); }
+.btn-primary:active { transform: translateY(1px); }
 
 .btn-secondary {
   border: 1px solid var(--border);
   color: var(--foreground);
-  padding: 0.75rem 1.5rem;
+  padding: 0.625rem 1.25rem;
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 0.95rem;
@@ -77,20 +78,31 @@ body {
   align-items: center;
   justify-content: center;
 }
-.btn-secondary:hover {
-  background: var(--surface);
-  border-color: #cbd5e1;
+.btn-secondary:hover { background: var(--surface); border-color: #d1d5db; }
+
+/* Gradient pill CTA (extruct-style) */
+.btn-gradient {
+  background: linear-gradient(135deg, #1d4ed8 0%, #6366f1 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 30px -8px rgba(99, 102, 241, 0.5);
+  transition: transform 0.05s ease, filter 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+.btn-gradient:hover { filter: brightness(1.05); }
+.btn-gradient:active { transform: translateY(1px); }
 
 /* ---- Cards ---- */
 .card {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 1rem; /* rounded-2xl */
+  border-radius: 1rem; /* radius-lg */
   padding: 1.5rem;
-}
-.card:hover {
-  border-color: #cbd5e1;
 }
 
 /* ---- Inputs ---- */
@@ -108,44 +120,14 @@ body {
   box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15);
 }
 
-/* ---- Section rhythm (generous whitespace) ---- */
-.section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
 /* ---- Link accent ---- */
 .link-accent {
   color: var(--brand);
   font-weight: 600;
 }
-.link-accent:hover {
-  color: var(--brand-dark);
-}
+.link-accent:hover { color: var(--brand-dark); }
 
-/* ---- Gradient pill CTA (igloohome-style) ---- */
-.btn-gradient {
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  box-shadow: 0 8px 20px -4px rgba(124, 58, 237, 0.4);
-  transition: transform 0.05s ease, box-shadow 0.15s ease, filter 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn-gradient:hover {
-  filter: brightness(1.05);
-  box-shadow: 0 10px 26px -4px rgba(124, 58, 237, 0.5);
-}
-.btn-gradient:active {
-  transform: translateY(1px);
-}
-
-/* floating glass card (igloohome-style overlay) */
+/* ---- Floating glass card (extruct-style overlay) ---- */
 .glass-card {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
@@ -154,14 +136,36 @@ body {
   box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.25);
 }
 
-.chip-accent {
-  background: #fff7ed;
-  color: #c2410c;
-  border: 1px solid #fed7aa;
+/* ---- Status pills ---- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
   padding: 0.15rem 0.5rem;
   border-radius: 9999px;
-  text-transform: uppercase;
 }
+.pill-pos { background: #dcfce7; color: #15803d; }
+.pill-warn { background: #ffedd5; color: #c2410c; }
+.pill-muted { background: #f3f4f6; color: #4b5563; }
+.pill-dot { width: 6px; height: 6px; border-radius: 9999px; background: currentColor; }
+
+/* ---- Mono for numbers/IDs ---- */
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* ---- Dark code block (integration section) ---- */
+.code-block {
+  background: #020617;
+  border: 1px solid #111827;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #e5e7eb;
+  overflow-x: auto;
+}
+.code-key { color: #fbbf24; }
+.code-str { color: #67e8f9; }
+.code-punc { color: #94a3b8; }

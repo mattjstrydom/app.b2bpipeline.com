@@ -52,30 +52,30 @@ export default function PartnerList({
         </button>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto card p-0">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-gray-500 border-b">
-              <th className="py-2">Name</th>
-              <th>Company</th>
-              <th>Type</th>
-              <th>Rate</th>
-              <th>Status</th>
+            <tr className="text-left text-muted border-b border-line">
+              <th className="py-2 px-4 font-semibold">Name</th>
+              <th className="px-4 font-semibold">Company</th>
+              <th className="px-4 font-semibold">Type</th>
+              <th className="px-4 font-semibold">Rate</th>
+              <th className="px-4 font-semibold">Status</th>
             </tr>
           </thead>
           <tbody>
             {partners.map((p) => (
-              <tr key={p.id} className="border-b border-gray-100">
-                <td className="py-2 font-medium">{p.name}</td>
-                <td>{p.company ?? "—"}</td>
-                <td className="capitalize">{p.type}</td>
-                <td>{(p.commission_rate * 100).toFixed(0)}%</td>
-                <td className="capitalize">{p.status}</td>
+              <tr key={p.id} className="border-b border-line hover:bg-surface transition">
+                <td className="py-2 px-4 font-medium text-ink">{p.name}</td>
+                <td className="px-4 text-muted">{p.company ?? "—"}</td>
+                <td className="px-4 capitalize text-muted">{p.type}</td>
+                <td className="px-4 mono">{(p.commission_rate * 100).toFixed(0)}%</td>
+                <td className="px-4 capitalize text-muted">{p.status}</td>
               </tr>
             ))}
             {partners.length === 0 && (
               <tr>
-                <td colSpan={5} className="py-6 text-center text-gray-400">
+                <td colSpan={5} className="py-8 text-center text-muted">
                   No partners yet. Add your first above.
                 </td>
               </tr>
