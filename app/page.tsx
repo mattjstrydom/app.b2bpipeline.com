@@ -117,6 +117,83 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* PRODUCT SHOWCASE */}
+      <section className="max-w-content mx-auto px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="eyebrow mb-4">See the product</p>
+            <h2 className="display text-4xl font-bold mb-6">
+              One board for every<br />partner deal.
+            </h2>
+            <p className="text-lg text-muted mb-6 max-w-xl">
+              Move deals across stages, watch commissions calculate the moment a
+              deal lands in Won, and export payouts your finance team can act on.
+              No spreadsheets, no chasing intro credit.
+            </p>
+            <ul className="space-y-3 text-sm text-muted">
+              {[
+                "Kanban pipeline with live stage counters",
+                "Per-partner commission rules, auto-applied",
+                "Referral log attached to the deal it became",
+                "One-click CSV payout export",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <span className="text-brand-600 font-bold mt-0.5">✓</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+            <Link href="/signup" className="btn-gradient mt-8 inline-block text-base px-6 py-3">
+              Start free
+            </Link>
+          </div>
+
+          <div className="relative">
+            <div className="card p-5 shadow-xl">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-semibold">Deal board</span>
+                <span className="chip-accent">Live</span>
+              </div>
+              <div className="grid grid-cols-4 gap-2 text-center mb-4">
+                {[
+                  ["Registered", "6"],
+                  ["Qualifying", "4"],
+                  ["Negotiation", "3"],
+                  ["Won", "9"],
+                ].map(([s, n]) => (
+                  <div key={s} className="bg-surface rounded-lg p-2">
+                    <p className="text-lg font-bold">{n}</p>
+                    <p className="text-[10px] uppercase tracking-wide text-muted">{s}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-2">
+                {[
+                  ["Acme Reseller", "Enterprise deal", "$12,000", "Won"],
+                  ["Northwind", "Pilot expansion", "$4,500", "Negotiation"],
+                  ["Globex", "New intro", "$2,200", "Qualifying"],
+                  ["Initech", "Upsell", "$3,800", "Registered"],
+                ].map(([p, d, v, st]) => (
+                  <div key={p} className="flex items-center justify-between bg-surface rounded-lg px-3 py-2 text-sm">
+                    <div>
+                      <p className="font-medium">{d}</p>
+                      <p className="text-xs text-muted">{p}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-semibold">{v}</p>
+                      <p className="text-[10px] uppercase text-muted">{st}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="glass-card absolute -top-4 -right-4 px-3 py-2 text-sm font-semibold hidden sm:block">
+              💸 $1,250 commission paid
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CORE VALUE */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
         <p className="eyebrow mb-4">
@@ -200,6 +277,33 @@ export default function LandingPage() {
         <p className="text-center text-sm text-muted mt-8">
           b2bpipeline is designed so every partner deal has a home you can see.
         </p>
+      </section>
+
+      {/* BOLD STAT BAND (igloohome-style color moment, in our blue) */}
+      <section className="bg-brand-600 text-white">
+        <div className="max-w-content mx-auto px-6 py-16">
+          <h2 className="display text-3xl md:text-4xl font-bold text-center mb-12">
+            Trusted to track partner revenue
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <p className="text-5xl font-bold">$0</p>
+              <p className="text-sm text-blue-100 mt-2">to start, no setup fees</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold">100%</p>
+              <p className="text-sm text-blue-100 mt-2">of partner deals in one board</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold">&lt;10 min</p>
+              <p className="text-sm text-blue-100 mt-2">to your first pipeline</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold">3</p>
+              <p className="text-sm text-blue-100 mt-2">simple plans, no lock-in</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ORIGIN STORY */}
