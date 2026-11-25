@@ -19,3 +19,7 @@ Thumbs.db
 
 # vercel
 .vercel
+
+.open-next
+.wrangler
+.dev.vars
